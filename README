@@ -1,0 +1,11 @@
+This is intended to be copied and used as a baseline or boilerplate for new projects.
+
+These files are © Bryan J Swift and released under the MIT License (see LICENSE)
+unless otherwise noted in the text of the file.
+
+The following files are excluded from the above copyright notice and license:
+* js/ie8shim.js
+* js/json2.js
+* js/querySelector.min.js
+* js/libs/*.js
+* js/modules/parseTweet.js
