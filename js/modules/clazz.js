@@ -26,10 +26,20 @@ define(function() {
     }
   }
 
+  function toggleClass(node, className) {
+    if (hasClass(node, className)) {
+      removeClass(node, className);
+    } else {
+      addClass(node, className);
+    }
+  }
+
+
   var api = {
     add: addClass,
     has: hasClass,
-    remove: removeClass
+    remove: removeClass,
+    toggle: toggleClass
   };
 
   return api;
