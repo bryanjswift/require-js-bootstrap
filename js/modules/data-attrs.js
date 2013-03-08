@@ -1,3 +1,9 @@
+/*!
+ * data, a simple interface for interacting with data attributes
+ * (c) Bryan J Swift 2012
+ * https://github.com/bryanjswift/require-js-bootstrap
+ * license MIT
+ */
 define(function() {
 
   function camelCase(str) {

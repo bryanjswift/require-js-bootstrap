@@ -1,3 +1,9 @@
+/*!
+ * overlay, a baseline for displaying modal content
+ * (c) Bryan J Swift 2012
+ * https://github.com/bryanjswift/require-js-bootstrap
+ * license MIT
+ */
 define(
   ['underscore', 'modules/addEvent', 'modules/clazz', 'modules/addScript'],
   function(_, addEvent, clazz, addScript) {

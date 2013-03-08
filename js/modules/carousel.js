@@ -1,6 +1,6 @@
 /*!
  * Carousel, a basic rotating view
- * (c) Bryan J Swift 2013
+ * (c) Bryan J Swift 2012
  * https://github.com/bryanjswift/require-js-bootstrap
  * license MIT
  */

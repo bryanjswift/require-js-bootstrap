@@ -1,3 +1,9 @@
+/*!
+ * domEvents, a simple interface for interacting with DOM events
+ * (c) Bryan J Swift 2012
+ * https://github.com/bryanjswift/require-js-bootstrap
+ * license MIT
+ */
 define(function() {
 
   // Functions taken from http://www.quirksmode.org/blog/archives/2005/10/_and_the_winner_1.html

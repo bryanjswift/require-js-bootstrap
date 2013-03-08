@@ -1,3 +1,9 @@
+/*!
+ * addScript, a quick way to add a script to a page
+ * (c) Bryan J Swift 2012
+ * https://github.com/bryanjswift/require-js-bootstrap
+ * license MIT
+ */
 define(function() {
 
   function addScript(id, src) {

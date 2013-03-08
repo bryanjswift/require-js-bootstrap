@@ -1,3 +1,9 @@
+/*!
+ * clazz, a simple interface for interacting with class attributes
+ * (c) Bryan J Swift 2012
+ * https://github.com/bryanjswift/require-js-bootstrap
+ * license MIT
+ */
 define(function() {
   var hasTrim = !!String.prototype.trim;
 
