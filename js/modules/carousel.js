@@ -45,7 +45,7 @@ define(
     function initialize(el, opts) {
       root = el;
       opts = opts || {};
-      items = root.querySelectorAll('.carousel-item');
+      items = (root.querySelectorAll ? root : document).querySelectorAll('.carousel-item');
       count = items.length;
       jumps = opts.jumps || [];
       if (count > 1) {
