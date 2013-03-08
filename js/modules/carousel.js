@@ -1,3 +1,9 @@
+/*!
+ * Carousel, a basic rotating view
+ * (c) Bryan J Swift 2013
+ * https://github.com/bryanjswift/require-js-bootstrap
+ * license MIT
+ */
 define(
   ['underscore', 'modules/clazz', 'modules/addEvent', 'modules/data-attrs'],
   function(_, clazz, addEvent, data) {
