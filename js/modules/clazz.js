@@ -34,7 +34,6 @@ define(function() {
     }
   }
 
-
   var api = {
     add: addClass,
     has: hasClass,
