@@ -5,8 +5,8 @@
  * license MIT
  */
 define(
-  ['underscore', 'modules/addEvent', 'modules/clazz', 'modules/addScript'],
-  function(_, addEvent, clazz, addScript) {
+  ['underscore', 'modules/addEvent', 'modules/clazz', 'modules/data-attrs', 'modules/addScript'],
+  function(_, addEvent, clazz, data, addScript) {
 
     window.onYouTubeIframeAPIReady = apiCallbackYoutube;
     addScript("youtube-api", "//www.youtube.com/iframe_api");
@@ -64,7 +64,7 @@ define(
       e.returnValue = false;
 
       closeOverlay(e, true);
-      var id = (a.href || a.getAttribute('href')).replace(/^.*#(.*)$/, '$1');
+      var id = getHref(a).replace(/^.*#(.*)$/, '$1');
       clazz.add(document.getElementById(id), 'overlay-visible');
       clazz.add(backdrop, 'backdrop-visible');
       addEvent(window, 'keyup', overlayKeypress);
@@ -85,13 +85,17 @@ define(
     }
 
     function initOverlay(a) {
-      var id = a.href.replace(/^.*#(.*)$/, '$1');
+      var id = getHref(a).replace(/^.*#(.*)$/, '$1');
       if (!id) { return; }
       var overlay = document.getElementById(id);
       document.body.appendChild(overlay);
       var close = overlay.querySelector('.overlay-close');
       addEvent(close, 'click', closeOverlay);
       addEvent(a, 'click', _.bind(triggerOverlay, this, a));
+    }
+
+    function getHref(a) {
+      return a.href || a.getAttribute('href') || data.get(a, 'href');
     }
 
     return {
