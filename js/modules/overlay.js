@@ -5,8 +5,8 @@
  * license MIT
  */
 define(
-  ['underscore', 'modules/addEvent', 'modules/clazz', 'modules/data-attrs', 'modules/addScript'],
-  function(_, addEvent, clazz, data, addScript) {
+  ['underscore', 'modules/domEvents', 'modules/clazz', 'modules/data-attrs', 'modules/addScript'],
+  function(_, evt, clazz, data, addScript) {
 
     window.onYouTubeIframeAPIReady = apiCallbackYoutube;
     addScript("youtube-api", "//www.youtube.com/iframe_api");
@@ -16,22 +16,12 @@ define(
     var de = document.documentElement;
     var backdrop = document.querySelector('.overlay-backdrop');
     resize();
-    addEvent(backdrop, 'click', closeOverlay);
+    evt.on(backdrop, 'click', closeOverlay);
 
     function apiCallbackYoutube() {
       _.each(document.querySelectorAll('.youtube'), function(frame) {
         players.push(new YT.Player(frame, {}));
       });
-    }
-
-    function removeEvent(node, name, handler) {
-      if (node && node.removeEventListener) {
-        node.removeEventListener(name, handler);
-      } else if (node && node.attachEvent) {
-        node.detachEvent('on' + name, handler);
-      } else if (console && console.warn) {
-        console.warn('no way to remove event from', node, name);
-      }
     }
 
     function resize(e) {
@@ -55,8 +45,8 @@ define(
         clazz.remove(overlay, 'overlay-visible');
       });
 
-      removeEvent(window, 'keyup', overlayKeypress);
-      removeEvent(window, 'resize', resize);
+      evt.off(window, 'keyup', overlayKeypress);
+      evt.off(window, 'resize', resize);
     }
 
     function triggerOverlay(a, e) {
@@ -67,8 +57,8 @@ define(
       var id = getHref(a).replace(/^.*#(.*)$/, '$1');
       clazz.add(document.getElementById(id), 'overlay-visible');
       clazz.add(backdrop, 'backdrop-visible');
-      addEvent(window, 'keyup', overlayKeypress);
-      addEvent(window, 'resize', resize);
+      evt.on(window, 'keyup', overlayKeypress);
+      evt.on(window, 'resize', resize);
     }
 
     function initAllOverlays() {
@@ -90,8 +80,8 @@ define(
       var overlay = document.getElementById(id);
       document.body.appendChild(overlay);
       var close = overlay.querySelector('.overlay-close');
-      addEvent(close, 'click', closeOverlay);
-      addEvent(a, 'click', _.bind(triggerOverlay, this, a));
+      evt.on(close, 'click', closeOverlay);
+      evt.on(a, 'click', _.bind(triggerOverlay, this, a));
     }
 
     function getHref(a) {
