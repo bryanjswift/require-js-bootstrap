@@ -24,17 +24,24 @@ define(function() {
       obj.detachEvent("on" + type, obj[type + fn]);
       obj[type + fn] = null;
       obj["e" + type + fn] = null;
+    } else if (console && console.warn) {
+      console.warn('no way to remove event from', node, name);
     }
   }
 
-  function stopEvent(e) {
+  function preventEvent(e) {
     if (e && e.preventDefault) { e.preventDefault(); }
     if (e) { e.returnValue = false; }
+  }
+
+  function stopEvent(e) {
+    if (e.stopPropagation) { e.stopPropagation(); }
   }
 
   return {
     off: removeEvent,
     on: addEvent,
+    prevent: preventEvent,
     stop: stopEvent
   };
 
