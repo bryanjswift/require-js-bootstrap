@@ -8,7 +8,8 @@
         'moment': 'libs/moment-1.7.2',
         'reqwest': 'libs/reqwest-0.4.5',
         'spin': 'libs/spin-1.2.5',
-        'underscore': 'libs/underscore-1.3.3'
+        'underscore': 'libs/underscore-1.3.3',
+        'vow': 'libs/vow-0.3.0'
       }
     },
     shim: {
